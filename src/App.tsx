@@ -5,7 +5,7 @@ import About from "./components/About/about";
 import ProjectGrid from "./components/projects/ProjectGrid";
 import Timeline from "./components/experience/Timeline";
 import Education from "./components/education/Education";
-import Certifications from "./components/certifications/certifications";
+import Certifications from "./components/Certifications/certifications";
 import Skills from "./components/skills/Skills";
 import ContactForm from "./components/contact/ContactForm";
 import Footer from "./components/layout/Footer";
