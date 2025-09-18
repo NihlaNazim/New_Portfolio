@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react"; // you also forgot to import these
+import { useEffect, useState } from "react";
+import {SITE} from "../../data/site";
+import { Download, Menu, X } from "lucide-react";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +15,11 @@ export default function Navbar() {
 
     const navItems = [
         { href: "#home", label: "Home" },
+        { href: "#about", label: "About" },
         { href: "#projects", label: "Projects" },
         { href: "#experience", label: "Experience" },
+        { href: "#education", label: "Education" },
+        { href: "#certifications", label: "Certifications" },
         { href: "#skills", label: "Skills" },
         { href: "#contact", label: "Contact" },
     ];
@@ -42,7 +46,7 @@ export default function Navbar() {
             </motion.a>
 
             {/* Desktop Navigation */}
-            <div className="items-center hidden space-x-8 md:flex">
+            <div className="items-center hidden space-x-6 md:flex">
                 {navItems.map((item) => (
                 <motion.a
                     key={item.href}
@@ -54,6 +58,16 @@ export default function Navbar() {
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all group-hover:w-full"></span>
                 </motion.a>
                 ))}
+                <motion.a
+                href={SITE.resume}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 px-4 py-2 text-white transition-all border border-purple-500 rounded-lg hover:bg-purple-500"
+                whileHover={{ scale: 1.05 }}
+                >
+                <Download size={16} />
+                Resume
+                </motion.a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -83,6 +97,15 @@ export default function Navbar() {
                     {item.label}
                 </a>
                 ))}
+                <a
+                href={SITE.resume}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 px-4 py-2 text-white transition-all border border-purple-500 rounded-lg hover:bg-purple-500"
+                >
+                <Download size={16} />
+                Resume
+                </a>
             </motion.div>
             )}
         </nav>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Mail } from "lucide-react"; // Fixed import path
 import { SITE } from "../../data/site";
 
 export default function ContactForm() {
@@ -19,16 +19,30 @@ export default function ContactForm() {
             </p>
             </div>
 
-            {/* ✅ Corrected form */}
+            {/* Contact form */}
             <form
             action="https://formsubmit.co/YOUR_EMAIL"
             method="POST"
             className="space-y-6"
             >
+            {/* Hidden inputs for formsubmit configuration */}
+            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
+            <input type="hidden" name="_subject" value="New contact form submission" />
+            <input type="hidden" name="_captcha" value="false" />
+
             <motion.input
                 type="email"
                 name="email"
                 placeholder="your.email@example.com"
+                required
+                className="w-full p-4 text-white placeholder-gray-400 transition-all border border-gray-700 bg-gray-800/50 rounded-xl focus:border-purple-500 focus:outline-none"
+                whileFocus={{ scale: 1.02 }}
+            />
+
+            <motion.input
+                type="text"
+                name="name"
+                placeholder="Your name"
                 required
                 className="w-full p-4 text-white placeholder-gray-400 transition-all border border-gray-700 bg-gray-800/50 rounded-xl focus:border-purple-500 focus:outline-none"
                 whileFocus={{ scale: 1.02 }}

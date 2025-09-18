@@ -1,22 +1,24 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
-interface Project {
+type Project = {
     image?: string;
     title: string;
     year?: string | number;
     blurb: string;
+    features?: string[];
     tech: string[];
     demo?: string;
     repo?: string;
-}
+    highlight?: boolean;
+};
 
 interface ProjectCardProps {
     project: Project;
     index: number;
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project, index }: ProjectCardProps) {
     return (
         <motion.article
         className="overflow-hidden transition-all duration-300 border border-gray-800 group bg-gray-900/50 backdrop-blur-sm rounded-2xl hover:border-purple-500/50"
@@ -35,6 +37,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+            {project.highlight && (
+            <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 text-xs font-semibold text-white rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
+                Featured
+                </span>
+            </div>
+            )}
         </div>
 
         <div className="p-6">
@@ -46,6 +55,20 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             <p className="mb-4 leading-relaxed text-gray-300">{project.blurb}</p>
+
+            {project.features && (
+            <div className="mb-4">
+                <p className="mb-2 text-sm font-semibold text-gray-400">Key Features:</p>
+                <ul className="text-sm text-gray-300">
+                {project.features.slice(0, 3).map((feature, i) => (
+                    <li key={i} className="flex items-center mb-1">
+                    <span className="w-1 h-1 mr-2 bg-purple-400 rounded-full"></span>
+                    {feature}
+                    </li>
+                ))}
+                </ul>
+            </div>
+            )}
 
             <div className="flex flex-wrap gap-2 mb-4">
             {project.tech.map((tech) => (
