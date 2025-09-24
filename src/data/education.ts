@@ -1,13 +1,11 @@
 export const EDUCATION = [
     {
-        institution: "University of Westminster", // Replace with your university
-        degree: "Bachelor of Science in Computer Science", // Replace with your degree
-        start: "2023",
-        end: "2027",
-        achievements: [
-        "participated in some hackathons and coding competitions",
-        ],
-        coursework: ["Data Structures", "Algorithms", "Database Systems", "Java programming", "Web Development"],
+        institution: "Kandy High School, Kandy",
+        degree: "General Certificate of Education (O/L)",
+        start: "2009",
+        end:"2019",
+        subjects: ["Mathematics", "Science", "English", "History", "Sinhala", "Religion"],
+        results: "6 A, 3 B passes" 
     },
     {
         institution: "Kandy Girls' High School", // Replace with your high school
@@ -16,5 +14,15 @@ export const EDUCATION = [
         end: "2022",
         subjects: ["Mathematics", "Physics", "IChemistry"],
         results: "B C S passes" // Replace with your results
+    },
+    {
+        institution: "University of Westminster", // Replace with your university
+        degree: "Bachelor of Science in Computer Science", // Replace with your degree
+        start: "2023",
+        end: "2027",
+        achievements: [
+        "participated in some hackathons and coding competitions",
+        ],
+        coursework: ["Data Structures", "Algorithms", "Database Systems", "Java programming", "Web Development"],
     }
 ];
